@@ -15,7 +15,7 @@ export default function DeviceRegistration() {
                   htmlFor="userId"
                   className="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2"
                 >
-                  UserId
+                  User ID
                 </label>
                 <div className="mt-1 sm:col-span-2 sm:mt-0">
                   <input
