@@ -15,7 +15,7 @@ export default function DeviceRegistration() {
         }}
         onSubmit={async (values) => {
           axios
-            .post("http://localhost:3000/phone", {
+            .post("https://blockchain-based-smartphone-ownership-backend.vercel.app/phone", {
               Brand: values.brand,
               Model: values.model,
               Imei: values.imei,

@@ -22,7 +22,7 @@ export default function OwnerRegistration() {
         }}
         onSubmit={async (values) => {
           axios
-            .post("http://localhost:3000/owner", {
+            .post("https://blockchain-based-smartphone-ownership-backend.vercel.app/owner", {
               FirstName: values.firstName,
               LastName: values.lastName,
               Email: values.email,

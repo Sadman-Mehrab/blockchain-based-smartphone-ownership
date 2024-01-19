@@ -12,7 +12,7 @@ export default function OwnershipTransfer() {
         }}
         onSubmit={async (values) => {
           axios
-            .post(`http://localhost:3000/ownershiprecord`, {
+            .post(`https://blockchain-based-smartphone-ownership-backend.vercel.app/ownershiprecord`, {
               Owner: { OwnerId: parseInt(values.userId) },
               Phone: { PhoneId: parseInt(values.phoneId) },
               DateAcquired: new Date().toJSON(),

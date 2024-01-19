@@ -12,7 +12,7 @@ export default function DeviceStatus() {
         }}
         onSubmit={async (values) => {
           axios
-            .patch(`http://localhost:3000/phone/${values.phoneId}`, {
+            .patch(`https://blockchain-based-smartphone-ownership-backend.vercel.app/phone/${values.phoneId}`, {
               Status: values.status,
             })
             .then(function (response) {
