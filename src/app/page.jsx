@@ -50,7 +50,7 @@ export default function Home() {
           </h2>
         </Link>
 
-        <Link
+        {/* <Link
           href="/approval"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors  hover:border-gray-300 hover:bg-gray-100 bg-gray-100 border-gray-200 "
           
@@ -61,7 +61,7 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-        </Link>
+        </Link> */}
 
         <Link
           href="/device-status"
@@ -70,6 +70,19 @@ export default function Home() {
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Device Status{' '}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </h2>
+        </Link>
+
+        <Link
+          href="/information"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors  hover:border-gray-300 hover:bg-gray-100 bg-gray-100 border-gray-200 "
+          
+        >
+          <h2 className={`mb-3 text-2xl font-semibold`}>
+            Information{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>

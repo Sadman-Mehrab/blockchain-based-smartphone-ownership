@@ -10,7 +10,7 @@ export default function DeviceRegistration() {
           brand: "",
           model: "",
           imei: "",
-          origin: "",
+          origin: "Bangladesh",
           purchaseDate: "",
         }}
         onSubmit={async (values) => {

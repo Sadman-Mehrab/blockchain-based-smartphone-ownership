@@ -8,7 +8,7 @@ export default function DeviceStatus() {
       <Formik
         initialValues={{
           phoneId: "",
-          status: "",
+          status: "Owned",
         }}
         onSubmit={async (values) => {
           axios

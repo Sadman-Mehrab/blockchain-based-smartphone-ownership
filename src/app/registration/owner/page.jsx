@@ -10,7 +10,7 @@ export default function OwnerRegistration() {
           firstName: "",
           lastName: "",
           email: "",
-          country: "",
+          country: "Bangladesh",
           address: "",
           passport: "",
           nid: "",
