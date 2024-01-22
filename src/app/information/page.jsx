@@ -10,51 +10,42 @@ export default function Information() {
   const [ownersVisible, setOwnersVisible] = useState(false);
   const [devicesVisible, setDevicesVisible] = useState(false);
   const [ownershipRecordsVisible, setOwnershipRecordsVisible] = useState(false);
+  
   const [refresh, setRefresh] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // GET owners
-    axios
-      .get(
-        `https://blockchain-based-smartphone-ownership-backend.vercel.app/owner`
-      )
-      .then(function (response) {
-        // alert("Owners Fetched Successfully");
-        setOwners(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-    // GET devices
-    axios
-      .get(
-        `https://blockchain-based-smartphone-ownership-backend.vercel.app/phone`
-      )
-      .then(function (response) {
-        // alert("Devices Fetched Successfully");
-        setDevices(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-    // GET ownershiprecords
-    axios
-      .get(
-        `https://blockchain-based-smartphone-ownership-backend.vercel.app/ownershiprecord`
-      )
-      .then(function (response) {
-        // alert("Ownershiprecords Fetched Successfully");
-        setOwnershipRecords(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const fetchData = async () => {
+      await axios
+        .all([
+          axios.get(
+            `https://blockchain-based-smartphone-ownership-backend.vercel.app/phone`
+          ),
+          axios.get(
+            `https://blockchain-based-smartphone-ownership-backend.vercel.app/owner`
+          ),
+          axios.get(
+            `https://blockchain-based-smartphone-ownership-backend.vercel.app/ownershiprecord`
+          ),
+        ])
+        .then(
+          axios.spread((devices, owners, ownershiprecords) => {
+            setDevices(devices.data);
+            setOwners(owners.data);
+            setOwnershipRecords(ownershiprecords.data);
+            setLoading(false);
+          })
+        );
+    };
+    fetchData();
   }, [refresh]);
 
   return (
-    <div className="grid place-items-center py-10 ">
+    <div
+      className={`grid place-items-center py-10 ${
+        loading ? "animate-pulse" : ""
+      }`}
+    >
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
@@ -104,6 +95,7 @@ export default function Information() {
               type="button"
               className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
               onClick={() => {
+                setLoading(true);
                 setRefresh(!refresh);
               }}
             >
