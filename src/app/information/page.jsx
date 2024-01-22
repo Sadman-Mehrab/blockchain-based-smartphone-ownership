@@ -304,7 +304,7 @@ export default function Information() {
                             {device.Imei}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            {device.PurchaseDate}
+                            {device.PurchaseDate.slice(0, 10)}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {device.Origin}
